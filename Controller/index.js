@@ -7,3 +7,10 @@ const NewUser = async(req,resp)=>
         resp.json(object)
     }
 
+const GetAllUsers = async(req,resp)=>
+{
+    const data = req.params.body
+    const object = await user.find()
+    resp.json({"message":"these are all Object",object})
+
+}
