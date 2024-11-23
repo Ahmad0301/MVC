@@ -14,3 +14,10 @@ const GetAllUsers = async(req,resp)=>
     resp.json({"message":"these are all Object",object})
 
 }
+
+const GetWithId = async(req,resp)=>
+{
+    const data = req.params.id
+    const object = await user.findById(data)
+    resp.json({"message":"Object with id",object})
+}
