@@ -38,3 +38,12 @@ const DeletUser = async(req,resp)=>
  
 }
 
+module.exports =
+{
+    NewUser,
+    GetAllUsers,
+    GetWithId,
+    UpdateUsers,
+    DeletUser
+ 
+}
