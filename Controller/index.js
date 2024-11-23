@@ -30,3 +30,11 @@ const UpdateUsers = async (req,resp)=>
     
 }
 
+const DeletUser = async(req,resp)=>
+{
+    const id = req.params.id
+    const object = await user.findByIdAndDelete(id)
+    resp.json({"message":"Object deleted",object})
+ 
+}
+
