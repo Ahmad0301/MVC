@@ -21,3 +21,12 @@ const GetWithId = async(req,resp)=>
     const object = await user.findById(data)
     resp.json({"message":"Object with id",object})
 }
+const UpdateUsers = async (req,resp)=>
+{
+    const id= req.params.id
+    const data = req.body
+    const object = await user.findByIdAndUpdate(id,data)
+    resp.json ({"message":"objet updated",object})
+    
+}
+
