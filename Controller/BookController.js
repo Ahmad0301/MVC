@@ -14,6 +14,13 @@ const GetAllBooks = async (req,resp)=>
     resp.json(object)
 }
 
+const GetBooksById = async (req,resp)=>
+{
+    const id = req.params.id
+    const object = await books.findById(id)
+    resp.json(object)
+}
+
     const id = req.params.id
     const object = await books.findByIdAndDelete(id)
     resp.json(object)
