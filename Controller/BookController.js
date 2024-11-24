@@ -29,6 +29,8 @@ const UpdateBooks = async (req,resp)=>
     resp.json(object)
 }
 
+const DeletBook = async (req,resp)=>
+{
     const id = req.params.id
     const object = await books.findByIdAndDelete(id)
     resp.json(object)
