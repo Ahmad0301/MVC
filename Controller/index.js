@@ -26,7 +26,7 @@ const UpdateUsers = async (req,resp)=>
 {
     const id= req.params.id
     const data = req.body
-    const object = await user.findByIdAndUpdate(id,data)
+    const object = await user.findByIdAndUpdate(id,data,{new:true})
     resp.json ({"message":"objet updated",object})
     
 }
