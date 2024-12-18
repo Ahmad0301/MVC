@@ -4,7 +4,7 @@ const app = express()
 const userRouter = require('./Routers/index')
 const bookrouter = require('./Routers/bookrouter')
 
-mongoose.connect('mongodb://localhost:27017/')
+mongoose.connect('mongodb://localhost:27017/db')
 .then(()=>console.log('mongodb is connected'))
 
 app.use(express.json())
