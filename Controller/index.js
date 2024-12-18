@@ -98,6 +98,17 @@ const borrow = async (req,resp)=>
         }
       };
       
+      const borrowedBooks = async (req, resp) => {
+        try {
+          const id = req.params.id;
+          const object = await user.findById(id).populate("borrowedBook");
+          resp.json(object);
+        } catch (error) {
+          console.log(error);
+          resp.send("Error finding user");
+        }
+      };
+
 module.exports =
 {
     NewUser,
