@@ -39,6 +39,39 @@ const DeletUser = async(req,resp)=>
  
 }
 
+const borrow = async (req,resp)=>
+    {
+        const userid = req.params.id;
+        const bookid = req.params.bookid
+
+        try
+        {
+            const object = await user.findById(userid)
+
+            if(!object)
+            {
+                return resp.status(400).json("user is not found")
+            }
+            if(object.BorrowedBook.length === 3)
+            {
+                return resp.status(400).json("user cannot borrowed more than 3 books")
+            }
+            if(object.BorrowedBook.includes)
+            {
+                return resp.status(400).json("user already borrowed book")
+            }
+
+            object.BorrowedBook.push(bookid)
+            await object.save()
+
+            resp.status(200).json("bokk borrowed sucessfully")
+
+        }
+        catch(error)
+        {
+            resp.status(500).json(error,"internal server error")
+        }
+    }
 module.exports =
 {
     NewUser,
