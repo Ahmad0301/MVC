@@ -116,5 +116,9 @@ module.exports =
     GetWithId,
     UpdateUsers,
     DeletUser
+    DeletUser,
+    borrow,
+    returnBook,
+    borrowedBooks
  
 }
