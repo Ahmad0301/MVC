@@ -72,6 +72,32 @@ const borrow = async (req,resp)=>
             resp.status(500).json(error,"internal server error")
         }
     }
+
+    const returnBook = async (req, resp) => {
+        const userId = req.params.id;
+        const bookId = req.params.bookId;
+
+        console.log(userId, "userid", bookId, "bookId");
+      
+        try {
+          const object = await user.findById(userId);
+      
+          if (!object) {
+            res.status(400).json("user not found");
+          }
+      
+          if (object.BorrowedBook.length === 0) {
+            resp.status(400).json("user has not borrowed any book");
+          }
+      
+          
+          await object.save();
+          resp.status(200).json("Book removed successfully");
+        } catch (error) {
+          resp.status(500).json(error, "can not return book");
+        }
+      };
+      
 module.exports =
 {
     NewUser,
